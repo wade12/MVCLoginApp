@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wade12.service.LoginService;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -22,6 +24,12 @@ public class LoginServlet extends HttpServlet {
 		String password;
 		userId = request.getParameter("userId");
 		password = request.getParameter("password");
+		
+		// instantiate an object of the LoginService
+		LoginService loginService = new LoginService();
+		// now pass userId and password the the method of this loginService object
+		boolean result = loginService.authenticate(userId, password);
+		
 		
 	} // end method doPost
 
