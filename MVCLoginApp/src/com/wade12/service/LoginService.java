@@ -2,6 +2,7 @@ package com.wade12.service;
 
 public class LoginService {
 	
+	// dummy method
 	public boolean authenticate(String userId, String password){
 		
 		if ( (password == null) || (password.trim() == "") ) {

@@ -27,9 +27,22 @@ public class LoginServlet extends HttpServlet {
 		
 		// instantiate an object of the LoginService
 		LoginService loginService = new LoginService();
+		
 		// now pass userId and password the the method of this loginService object
+		// boolean is the Model part of the MVC
+		// boolean is not used to generate the View itself
+		// boolean is used to decide what happens to the View (i.e. go success or go back to login)
 		boolean result = loginService.authenticate(userId, password);
 		
+		if (result) {
+			response.sendRedirect("success.jsp");
+			return;
+		} // end if
+		else {
+			response.sendRedirect("login.jsp");
+			return;
+
+		} // end else
 		
 	} // end method doPost
 
