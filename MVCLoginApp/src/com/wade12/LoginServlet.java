@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wade12.dto.User;
 import com.wade12.service.LoginService;
 
 /**
@@ -35,6 +36,7 @@ public class LoginServlet extends HttpServlet {
 		boolean result = loginService.authenticate(userId, password);
 		
 		if (result) {
+			User user = loginService.getUserDetails(userId);
 			response.sendRedirect("success.jsp");
 			return;
 		} // end if

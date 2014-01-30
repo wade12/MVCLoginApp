@@ -2,6 +2,8 @@ package com.wade12.service;
 
 import java.util.HashMap;
 
+import com.wade12.dto.User;
+
 // dummy business service
 // use a database in the real world!
 public class LoginService {
@@ -24,9 +26,13 @@ public class LoginService {
 			return true;
 	} // end method authenticate
 	
-	
-	public String getUsername(String userId) {
-		return users.get(userId);
+	// Model is the user object that is being passed
+	public User getUserDetails(String userId) {
+		
+		User user = new User();
+		user.setUserName(users.get(userId));
+		user.setUserName(userId);
+		return user;
 	} // end method getUsername
 
 } // end Class LoginService
