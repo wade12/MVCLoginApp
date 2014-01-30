@@ -1,6 +1,8 @@
 package com.wade12;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +39,11 @@ public class LoginServlet extends HttpServlet {
 		
 		if (result) {
 			User user = loginService.getUserDetails(userId);
-			response.sendRedirect("success.jsp");
+			// request.getSession().setAttribute("user", user);
+			request.setAttribute("user", user);
+			// response.sendRedirect("success.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			dispatcher.forward(request, response);
 			return;
 		} // end if
 		else {
