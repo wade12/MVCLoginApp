@@ -22,9 +22,8 @@
 </jsp:useBean>
 
 <br>
-Hello <%=user.getUserName() %>
+<!-- Hello //<%=user.getUserName() %> -->
+Hello <jsp:getProperty property="userName" name="user" />
 </body>
-
-
 
 </html>
