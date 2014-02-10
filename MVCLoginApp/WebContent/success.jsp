@@ -19,6 +19,7 @@
 %>
 
 <jsp:useBean id="user" class="com.wade12.dto.User" scope="request">
+	<jsp:setProperty property="userName" name="user" value="NewUser" />
 </jsp:useBean>
 
 <br>
